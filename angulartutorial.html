@@ -90,6 +90,18 @@
         <p>I like this</p>
 
     </div>
+    <hr/>
+    <br/>
+    <div ng-controller="ngBlur">
+        <h1>Update the input field:</h1>
+        <input ng-model="name" ng-model-options="{debounce: 1000}" />
+        <p>The value will wait with the bindings until the field loses focus:</p>
+
+        {{name}}
+    </div>
+    <hr/>
+    <br/>
+    
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script>
     var app = angular.module('myApp', []);
@@ -129,6 +141,9 @@
             $scope.count++;
         }
     }]);
+    app.controller('ngBlur', function($scope) {
+        $scope.name = "John Doe";
+    });
 </script>
 
 </body>

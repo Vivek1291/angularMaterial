@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<div ng-app="myApp" w3-test-directive>
+    <div ng-init="names=['Vivek','Dinesh','Avneesh']">
+        <p>Looping with ng-repeat:</p>
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x }}
+            </li>
+        </ul>
+    </div>
+    <div>
+        <form name="myForm" ng-init="myText">
+        Email:
+            <input type="email" name="myAddress" ng-model="myText" required>
+            <p>Edit the email address, and try to change the status.</p>
+            <h1>Status</h1>
+            <p> Valid: {{myForm.myAddress.$valid}} (if true, the value meets all criteria).</p>
+            <p> Dirty: {{myForm.myAddress.$dirty}} (if true, the value has been changed).</p>
+            <p> Touched: {{myForm.myAddress.$touched}} (if true, the field had been in focus).</p>
+    </form>
+    </div>
+</div>
+<script>
+    var app=angular.module("myApp", []);
+    app.directive("w3TestDirective", function() {
+        return{
+            template: "I was made in a directive constructor"
+        };
+    });
+</script>
+</body>
+</html>
